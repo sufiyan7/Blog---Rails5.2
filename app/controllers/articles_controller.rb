@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 	def index
 		@articles = Article.all
+		puts "~~~~~~~inside index @articles : #{@articles}"
+		Rails.logger.debug("~~~~~~~inside index @articles : #{@articles}")
 	end
 
 
@@ -10,7 +12,7 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-
+		@article = Article.new
 	end
 
 
@@ -21,8 +23,11 @@ class ArticlesController < ApplicationController
 	def create
 	  @article = Article.new(article_params)
 	 
-	  @article.save
-	  redirect_to @article
+	  if @article.save
+	  	redirect_to @article
+	  else
+	  	render 'new'
+	  end
 	end
 
 

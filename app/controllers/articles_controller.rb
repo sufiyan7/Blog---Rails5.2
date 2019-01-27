@@ -16,7 +16,8 @@ class ArticlesController < ApplicationController
 	end
 
 	def new
-		@article = Article.new
+		@article = Article.new()
+	
 	end
 
 
@@ -26,6 +27,11 @@ class ArticlesController < ApplicationController
 
 	def create
 	  @article = Article.new(article_params)
+		Rails.logger.debug("~~~~~~~inside before  @article : #{ @article}")
+
+	  @article.user_id = current_user.id
+		Rails.logger.debug("~~~~~~~inside after  @article : #{ @article}")
+
 	 
 	  if @article.save
 	  	redirect_to @article
@@ -38,11 +44,11 @@ class ArticlesController < ApplicationController
 	def update
 		@article = Article.find(params[:id])
  
-		  if @article.update(article_params)
+		if @article.update(article_params)
 		    redirect_to @article
-		  else
+		else
 		    render 'edit'
-		  end
+		end
 	end
 
 

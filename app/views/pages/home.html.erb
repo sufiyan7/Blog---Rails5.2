@@ -6,7 +6,9 @@
 	<%= link_to 'Sign In', new_user_session_path, :style=> 'padding-right:15px;' %>
 <% end %>
 
-
+<% if user_signed_in? %>
+	<%= link_to 'My Dashboard >>',controller: 'pages', action: 'dashboard' %>
+<% end %>
 
 <h2>This is my first blog in rails framework.</h2>
 <h3>So keep posting and keep updating.</h3>

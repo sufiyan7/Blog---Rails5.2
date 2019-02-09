@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap core CSS -->
+    <%= stylesheet_link_tag "bootstrap/bootstrap" %>
+
+    <!-- Custom styles for this template -->
+    <%= stylesheet_link_tag "blog-post" %>
+
+    <style type="text/css">
+      body{
+        margin-right: 10%;
+        margin-left: 10%
+      }
+    </style>
+
+    <%= yield :title %>
   </head>
 
   <body>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <%= render partial: "pages/navbar" %> 
+
+    <%= yield :body %>
+
+   <%#= render partial: "footer" %> 
+   
+
+    <!-- Bootstrap core JavaScript -->
+    <%= javascript_include_tag "jquery/jquery.min", "bootstrap/bootstrap.bundle.min" %>
   </body>
 </html>

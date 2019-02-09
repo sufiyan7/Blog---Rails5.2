@@ -1,18 +1,18 @@
-<h1>My Blog</h1>
-<% if user_signed_in? %>
-	<%= link_to 'Sign Out', destroy_user_session_path, method: :delete, :style=> 'padding-right:15px;' %>
-<% else %>
-	<%= link_to 'Sign Up', new_user_registration_path, :style=> 'padding-right:15px;'%>
-	<%= link_to 'Sign In', new_user_session_path, :style=> 'padding-right:15px;' %>
+<% content_for :title do %>
+    <title>Home | Blog</title>
 <% end %>
 
-<% if user_signed_in? %>
-	<%= link_to 'My Dashboard >>',controller: 'pages', action: 'dashboard' %>
+<% content_for :body do %>
+   	<h2>This is my first blog in rails framework.</h2>
+		<h3>So keep posting and keep updating.</h3>
+		
+		<% if user_signed_in? %>
+			<%= link_to 'See all Post >>',articles_path %>
+		<% else %>
+			<h3>You need to login to see blog post</h3>
+		<% end %>
+   </div>
 <% end %>
 
-<h2>This is my first blog in rails framework.</h2>
-<h3>So keep posting and keep updating.</h3>
 
-<% if user_signed_in? %>
-	<%= link_to 'See all Post >>',articles_path %>
-<% end %>
+

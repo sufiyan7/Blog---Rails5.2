@@ -14,7 +14,7 @@
             </li>
           <% if user_signed_in? %>
 	          <li class="nav-item">
-	              <%= link_to 'My Dashboard', {controller: 'pages', action: 'dashboard'}, class: 'nav-link' %>
+	              <%= link_to 'My Dashboard', {controller: 'articles', action: 'mydashboard'}, class: 'nav-link' %>
 	          </li>		
 			    <% end %>
             

@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
   get 'pages/home'
-  get 'pages/dashboard'
+  # get 'pages/dashboard'
   get 'welcome/index'
+  get 'articles/mydashboard'
   
   resources :articles do
   	resources :comments

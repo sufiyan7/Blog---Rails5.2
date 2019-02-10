@@ -7,7 +7,7 @@
 		<h3>So keep posting and keep updating.</h3>
 		
 		<% if user_signed_in? %>
-			<%= link_to 'See all Post >>',articles_path %>
+			<%= link_to 'See all Post >>',articles_path,class: 'btn btn-primary' %>
 		<% else %>
 			<h3>You need to login to see blog post</h3>
 		<% end %>

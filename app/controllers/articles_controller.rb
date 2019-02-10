@@ -60,6 +60,14 @@ class ArticlesController < ApplicationController
 	  redirect_to articles_path
 	end
 
+	def mydashboard
+		if user_signed_in?
+			loggedinUserId = current_user.id
+			@articles = Article.where(user_id: loggedinUserId)
+		end
+		render 'dashboard'
+	end
+
  
 	private
 	  def article_params
